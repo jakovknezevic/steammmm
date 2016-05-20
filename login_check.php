@@ -1,19 +1,19 @@
-<?php require('check.php'); ?>
+
 <?php require('db.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Automobili</title>
+    <title>666</title>
 </head>
 
 <body>
 <h1>
-    Automobili
+    420 Blaze it
 </h1>
 
 <p>
     <?php
-    $sql = "SELECT * FROM users WHERE username='" . $_POST['username'] . "' AND password='" . $_POST['password'] . "'";
+    $sql = "SELECT * FROM korisnici WHERE username='" . $_POST['username'] . "' AND password='" . $_POST['password'] . "'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

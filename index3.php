@@ -26,12 +26,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index3.php">My Library</a>
+
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index2.php">Steam Store</a></li>
+                <li class="active"><a href="index3.php">My Library</a></li>
             </ul>
+            <a class="navbar-brand" href="index2.php">Steam Store</a>
+            <a class="navbar-brand" href="editprofile.php">Edit Profile</a>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
@@ -39,11 +41,12 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>Steam Store</h1>
+        <h1>My Library</h1>
         <p class="lead"></p>
     </div>
 
     <div>
+        
         <p>
             <?php
             if (!isset($_SESSION['count'])) {
@@ -61,7 +64,7 @@
                     echo('<tr>');
                     echo('<td>' . $row['name'] . '</td>');
                     echo('<td>' . $row['genre'] . '</td>');
-                    echo('<td>' . '<a href="add.php?id=' . $row['id'] . '"><img src="img/plus.png"></a>' . '</td>');
+                    echo('<td>' . '<a href="delete.php?id=' . $row['id'] . '"><img src="img/delete.gif"></a>' . '</td>');
                     echo('</tr>');
                 }
                 echo('</table>');
