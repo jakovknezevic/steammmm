@@ -1,5 +1,21 @@
 
 <?php require('db.php'); ?>
+
+<?php
+
+$sql = "SELECT id FROM korisnici";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo($row['id']);
+    }
+} else {
+    echo "Nema korisnika";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,13 +44,14 @@
             </button>
 
         </div>
+
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index3.php">My Library</a></li>
             </ul>
             <a class="navbar-brand" href="index2.php">Steam Store</a>
-            <a class="navbar-brand" href="editprofile.php">Edit Profile</a>
         </div><!--/.nav-collapse -->
+
     </div>
 </nav>
 
@@ -46,7 +63,14 @@
     </div>
 
     <div>
-        
+        <?php
+
+        $sql = "SELECT * FROM korisnici WHERE id=" . $_GET['id'];
+        $result = $conn->query($sql);
+        $korisnik = $result->fetch_assoc();
+        ?>
+
+
         <p>
             <?php
             if (!isset($_SESSION['count'])) {
@@ -74,6 +98,16 @@
             $conn->close();
             ?>
         </p>
+        <div>
+        <p>
+
+        <form action="editprofile.php" method="post">
+            <input type="submit" value="Edit">
+        </form>
+        </p>
+        </div>
+
+
     </div>
 
 </div><!-- /.container -->
