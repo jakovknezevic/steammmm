@@ -1,3 +1,4 @@
+<?php require('check.php'); ?>
 <?php require('db.php'); ?>
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,7 @@
 
 <p>
     <?php
-    $sql = "INSERT INTO games (name, genre) VALUES ('" . $_POST['registracija'] . "', '" . $_POST['ime'] . "')";
+    $sql = "INSERT INTO korisnici (gameId) VALUES ('" . $_POST['registracija'] . "', '" . $_POST['ime'] . "')";
     $result = $conn->query($sql);
 
     echo('Automobil je unesen!<br>');
